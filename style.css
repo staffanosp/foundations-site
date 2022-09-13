@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=VT323&display=swap");
+
+* {
+  /*  margin: 0;
+    padding: 0; */
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111122;
+  background-repeat: no-repeat;
+  background-size: 100% 50px;
+  color: #60f765;
+  font-size: 24px;
+  font-family: "VT323", monospace;
+  max-width: 680px;
+  margin: 50px 50px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Major Mono Display", monospace;
+  text-transform: uppercase;
+  background-color: #60f765;
+  color: #111122;
+  width: fit-content;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+p {
+  padding: 0px 0px 80px 0;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 0px 20px 0;
+}
+
+.gallery a {
+  display: flex;
+  background-color: #60f765;
+  padding: 4px;
+}
+
+.gallery a:hover {
+  background-color: #f760a4;
+}
+
+.gallery img {
+  filter: grayscale(100%);
+  mix-blend-mode: multiply;
+}
+
+.gallery img:hover {
+  filter: unset;
+  mix-blend-mode: unset;
+}
+
+.back-link {
+  color: #60f765;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline wavy;
+  text-underline-offset: 3px;
+}
+
+.back-link::after,
+.back-link::before {
+  content: "\2191";
+}
