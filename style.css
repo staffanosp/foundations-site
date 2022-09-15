@@ -43,9 +43,8 @@ p {
 }
 
 h1 {
-  --font-size: clamp(3rem, 1rem + 10vw, 6rem);
-  font-size: var(--font-size);
-  letter-spacing: calc(var(--font-size) * 0.1);
+  font-size: clamp(3rem, 1rem + 10vw, 6rem);
+  letter-spacing: 0.1em;
   font-family: "Shrikhand", cursive;
   line-height: 1;
 }
