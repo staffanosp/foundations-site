@@ -1,85 +1,102 @@
-@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Shrikhand&display=swap");
 
 * {
-  /*  margin: 0;
-    padding: 0; */
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background-color: #111122;
-  background-repeat: no-repeat;
-  background-size: 100% 50px;
-  color: #60f765;
-  font-size: 24px;
-  font-family: "VT323", monospace;
-  max-width: 680px;
-  margin: 50px 50px;
+html {
+  font-size: 16px;
+  font-family: "Fira Code", monospace;
+  line-height: 1.6;
 }
 
-h1,
-h2,
-h3 {
-  font-family: "Major Mono Display", monospace;
-  text-transform: uppercase;
-  background-color: #60f765;
-  color: #111122;
-  width: fit-content;
+.site-wrapper {
+  min-width: 300px;
 }
 
-h1 {
-  font-size: 40px;
+.site-content {
+  max-width: 1200px;
+  margin: auto;
 }
 
-h2 {
-  font-size: 28px;
+.header-wrapper {
+  background-color: lightcoral;
 }
 
-h3 {
-  font-size: 18px;
+.header-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20rem;
+  padding: 3rem;
+}
+
+.section-content {
+  padding: 2rem 1rem;
 }
 
 p {
-  padding: 0px 0px 80px 0;
+  font-size: 1.2rem;
+  padding-bottom: 2rem;
 }
 
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0px 0px 20px 0;
+h1 {
+  --font-size: clamp(3rem, 1rem + 10vw, 6rem);
+  font-size: var(--font-size);
+  letter-spacing: calc(var(--font-size) * 0.1);
+  font-family: "Shrikhand", cursive;
+  line-height: 1;
 }
 
-.gallery a {
-  display: flex;
-  background-color: #60f765;
-  padding: 4px;
+.btn {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  font-size: 3rem;
+  font-family: "Fira Code", monospace;
+  line-height: 1.6;
+  min-width: 10rem;
 }
 
-.gallery a:hover {
-  background-color: #f760a4;
+.scale-background-on-hover {
+  position: relative;
+}
+.scale-background-on-hover::after {
+  background-color: salmon;
+  border-radius: 8px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: transform 250ms;
+}
+.scale-background-on-hover:hover::after {
+  transform: scale(1.1);
 }
 
-.gallery img {
-  filter: grayscale(100%);
-  mix-blend-mode: multiply;
+.cols-split {
+  column-gap: 4rem;
 }
 
-.gallery img:hover {
-  filter: unset;
-  mix-blend-mode: unset;
+@media screen and (min-width: 600px) {
+  .cols-split {
+    columns: 2;
+  }
+
+  .section-content {
+    padding: 3rem;
+  }
 }
 
-.back-link {
-  color: #60f765;
-  text-decoration: none;
-}
-
-.back-link:hover {
-  text-decoration: underline wavy;
-  text-underline-offset: 3px;
-}
-
-.back-link::after,
-.back-link::before {
-  content: "\2191";
+@media screen and (min-width: 1000px) {
+  .cols-split {
+    columns: 3;
+  }
 }
