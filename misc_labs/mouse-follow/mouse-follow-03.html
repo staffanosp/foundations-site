@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .circle {
+        background-color: orangered;
+        position: absolute;
+        border-radius: 100%;
+        translate: -50% -50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      //settings
+      const amount = 500;
+      const ratio = 0.98;
+      const maxSize = 200;
+      const minSize = 0;
+      const minDist = 0.1;
+
+      //start...
+      const MathHelper = {
+        lerp: (v0, v1, x) => v0 + (v1 - v0) * x,
+        clamp: (v, min, max) => Math.max(Math.min(v, max), min),
+        smoothStep: (v0, v1, x) => v0 + (v1 - v0) * (x ** 2 * (3 - 2 * x)),
+        smoothStepInv: (v0, v1, x) =>
+          v0 + (v1 - v0) * x * (2 * x ** 2 - 3 * x + 2),
+      };
+
+      let root = document.getElementById("root");
+      let active = true;
+      let mousePos = [0, 0];
+      let currPositions = [];
+
+      function init() {
+        //create the circles
+        for (let i = 0; i < amount; i++) {
+          let newEl = document.createElement("div");
+          newEl.classList.add("circle");
+          newEl.id = "circle" + i;
+          size = 0;
+          newEl.style.width = `${size}px`;
+          newEl.style.height = `${size}px`;
+          newEl.style.top = "0px";
+          newEl.style.left = "0px";
+          newEl.style.zIndex = -i;
+          root.appendChild(newEl);
+          currPositions.push([0, 0]);
+        }
+
+        //start animation
+        window.requestAnimationFrame(step);
+      }
+
+      function step(timestamp) {
+        // console.log("Timestamp:", timestamp);
+
+        for (let i = 0; i < amount; i++) {
+          let element = document.getElementById("circle" + i);
+          let targetX, targetY;
+          let currX = currPositions[i][0];
+          let currY = currPositions[i][1];
+
+          if (i === 0) {
+            targetX = mousePos[0];
+            targetY = mousePos[1];
+          } else {
+            targetX = currPositions[i - 1][0];
+            targetY = currPositions[i - 1][1];
+          }
+
+          currRatio = (i > 0 && ratio) || ratio / 6;
+          currFunc = (i > 0 && "smoothStepInv") || "smoothStep";
+
+          let diffX = MathHelper[currFunc](currX, targetX, currRatio) - currX;
+          let diffY = MathHelper[currFunc](currY, targetY, currRatio) - currY;
+
+          let newX = diffX + currX;
+          let newY = diffY + currY;
+
+          currPositions[i] = [newX, newY];
+
+          element.style.left = `${newX}px`;
+          element.style.top = `${newY}px`;
+
+          scale = MathHelper.clamp(
+            (Math.abs(diffX) + Math.abs(diffY)) * 0.01,
+            0,
+            1
+          );
+          console.log(scale);
+          size = MathHelper.smoothStep(minSize, maxSize, scale);
+
+          element.style.backgroundColor = `hsl(${MathHelper.lerp(
+            200,
+            360,
+            scale
+          )}deg,100%,50%)`;
+          element.style.boxShadow = `0px ${scale * maxSize * 3}px #ddd`;
+          element.style.width = `${size}px`;
+          element.style.height = `${size}px`;
+        }
+
+        //optimization to stop when done
+        let fullDiffX = currPositions[0][0] - currPositions[amount - 1][0];
+        let fullDiffY = currPositions[0][1] - currPositions[amount - 1][1];
+        if (Math.abs(fullDiffX) < minDist && Math.abs(fullDiffY) < minDist) {
+          // console.log("———DONE!———");
+          active = false;
+        }
+
+        if (active) window.requestAnimationFrame(step);
+      }
+
+      window.addEventListener("mousemove", (e) => {
+        mousePos = [e.clientX, e.clientY];
+
+        //restart
+        if (!active) {
+          active = true;
+          window.requestAnimationFrame(step);
+        }
+      });
+
+      init();
+    </script>
+  </body>
+</html>
