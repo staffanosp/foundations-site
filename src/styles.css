@@ -9,22 +9,66 @@
 :root {
   font-size: 16px;
   font-family: "Fira Code", monospace;
-  line-height: 1.6;
+  line-height: 1.5;
+  background-color: #eee;
 }
 
 .navigation {
+  display: block;
   margin: 3rem;
-  font-size: 3rem;
+  font-size: 2rem;
+  background-color: #5100fe;
+  padding: 2rem 5rem 2rem 2rem;
+  max-width: 50rem;
+  /* box-shadow: 16px 16px #222; */
+  box-shadow: 0px 20px 80px -50px #5100fe;
+  transition: box-shadow 500ms;
 }
 
-.navigation li {
+.navigation:hover {
+  box-shadow: 0px 20px 80px -40px #fe7b00;
+}
+
+.navigation ul {
   list-style-type: none;
 }
 
+.navigation li {
+  /* list-style-type: none; */
+  margin-bottom: 2rem;
+}
+
+.navigation li:last-child {
+  /* background-color: red; */
+  margin-bottom: 0rem;
+}
 .navigation a {
-  color: #999;
+  color: #eee;
+  transition: all 100ms ease-out;
 }
 
 .navigation a:hover {
-  color: #222;
+  /* color: #222; */
+}
+
+.navigation a::after {
+  position: absolute;
+  content: "->";
+  translate: -1rem;
+  opacity: 0;
+  transition: all 100ms ease-out;
+}
+
+.navigation a:hover::after {
+  content: "->";
+  translate: 1rem;
+  opacity: 1;
+}
+
+@media screen and (min-width: 600px) {
+  .navigation {
+    margin: 6rem;
+    font-size: 3rem;
+    padding: 4rem 10rem 4rem 4rem;
+  }
 }
