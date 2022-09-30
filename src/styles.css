@@ -4,71 +4,187 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* border: dashed red 1px; */
 }
 
 :root {
+  /* Variables */
+  --color-primary: #5100fe;
+  --color-whiteish: #eee;
+  --menubar-height: 4rem;
+
+  --padding-x: 1rem;
+  --padding-y: 2rem;
+
+  /* Properties */
   font-size: 16px;
+  line-height: 1.6;
   font-family: "Fira Code", monospace;
-  line-height: 1.5;
-  background-color: #eee;
+  background-color: var(--color-whiteish);
+  scroll-behavior: smooth;
+}
+
+/* Navigation */
+
+.navigation__reveal-mask {
+  display: none;
+  position: relative;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+}
+
+.navigation__container {
+  position: fixed;
+  width: 90%;
+  background-color: var(--color-primary);
+  height: 100%;
+  /* height: var(--menubar-height); */
+  display: flex;
+  align-items: center;
 }
 
 .navigation {
-  display: block;
-  margin: 3rem;
-  font-size: 2rem;
-  background-color: #5100fe;
-  padding: 2rem 5rem 2rem 2rem;
-  max-width: 50rem;
-  /* box-shadow: 16px 16px #222; */
-  box-shadow: 0px 20px 80px -50px #5100fe;
-  transition: box-shadow 500ms;
-}
-
-.navigation:hover {
-  box-shadow: 0px 20px 80px -40px #fe7b00;
+  margin-left: 2rem;
 }
 
 .navigation ul {
-  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
 }
 
 .navigation li {
-  /* list-style-type: none; */
   margin-bottom: 2rem;
 }
 
 .navigation li:last-child {
-  /* background-color: red; */
   margin-bottom: 0rem;
 }
+
 .navigation a {
-  color: #eee;
-  transition: all 100ms ease-out;
+  color: var(--color-whiteish);
+  font-size: 2rem;
 }
 
-.navigation a:hover {
-  /* color: #222; */
+.section {
+  /* padding-top: var(--menubar-height); */
 }
 
-.navigation a::after {
-  position: absolute;
-  content: "->";
-  translate: -1rem;
-  opacity: 0;
-  transition: all 100ms ease-out;
+#section-home {
+  /* background-color: var(--color-primary); */
+  background-color: salmon;
+  height: calc(100vh - 16px);
 }
 
-.navigation a:hover::after {
-  content: "->";
-  translate: 1rem;
-  opacity: 1;
+#section-home h1 {
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}
+
+.the-story-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.the-story-container > * {
+  /* background-color: red; */
+  width: 100%;
+}
+
+.the-story-container img {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+h2 {
+  color: var(--color-primary);
+  font-size: 2rem;
+  padding: var(--padding-y) var(--padding-x);
+  font-weight: 400;
+}
+
+.text-block {
+  padding: var(--padding-y) var(--padding-x);
+  background-color: var(--color-primary);
+  color: var(--color-whiteish);
+  /* max-width: 50rem; */
+}
+
+.the-music-container {
+  padding: 0 var(--padding-x);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  grid-gap: 32px;
+}
+
+.album-card {
+  /* padding: 0px 32px; */
+  margin: auto;
+}
+
+.album-card__item {
+  max-width: 400px;
+  padding: 4px;
+  border: var(--color-primary) solid 4px;
+  box-shadow: 4px 4px var(--color-whiteish), 8px 8px var(--color-primary);
+  color: var(--color-primary);
+}
+
+.album-card__item img {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--color-primary);
+}
+
+.album-card__title {
+  height: 10rem;
+  margin: 16px;
+  font-size: 1.5rem;
+  overflow: scroll;
+}
+
+.album-card__year {
+  margin: 16px;
+  font-size: 16px;
 }
 
 @media screen and (min-width: 600px) {
-  .navigation {
-    margin: 6rem;
-    font-size: 3rem;
-    padding: 4rem 10rem 4rem 4rem;
+}
+
+@media screen and (min-width: 48rem) {
+  :root {
+    --padding-x: 4rem;
+    --padding-y: 2rem;
+  }
+
+  .the-story-container > * {
+    /* width: 50%; */
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  .text-block {
+    columns: 2;
+    column-gap: calc(var(--padding-x) / 2);
+  }
+
+  .the-music-container {
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  }
+}
+
+@media screen and (min-width: 70rem) {
+  .text-block {
+    columns: 3;
+    column-gap: calc(var(--padding-x) / 2);
   }
 }
