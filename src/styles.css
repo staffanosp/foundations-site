@@ -16,6 +16,8 @@
   --padding-x: 1rem;
   --padding-y: 2rem;
 
+  --site-max-width: 1600px;
+
   /* Properties */
   font-size: 16px;
   line-height: 1.6;
@@ -24,56 +26,61 @@
   scroll-behavior: smooth;
 }
 
-/* Navigation */
+/* topbar */
 
-.navigation__reveal-mask {
-  display: none;
-  position: relative;
-  width: 64px;
-  height: 64px;
-  overflow: hidden;
+.topbar__bg {
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  background-color: var(--color-primary);
+  height: var(--menubar-height);
+  box-shadow: 0px 4px var(--color-whiteish);
 }
 
-.navigation__container {
-  position: fixed;
-  width: 90%;
-  background-color: var(--color-primary);
+.topbar__container {
+  max-width: var(--site-max-width);
   height: 100%;
-  /* height: var(--menubar-height); */
+  padding: 0 var(--padding-x);
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
-.navigation {
-  margin-left: 2rem;
+.topbar__navigation {
+  /* width: 100%; */
 }
 
-.navigation ul {
+.topbar__navigation ul {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   list-style: none;
+  justify-content: flex-end;
+  align-items: baseline;
 }
 
-.navigation li {
+.topbar__navigation li {
+  display: inline;
   margin-bottom: 2rem;
 }
 
-.navigation li:last-child {
-  margin-bottom: 0rem;
-}
-
-.navigation a {
+.topbar__navigation a {
   color: var(--color-whiteish);
-  font-size: 2rem;
+  /* font-size: 2rem; */
 }
 
-.section {
-  /* padding-top: var(--menubar-height); */
+.topbar__navigation a:hover {
+  /* color: red; */
+  /* font-size: 2rem; */
+}
+
+/* Compensation for topbar height. Used by other sections */
+.topbar--compensation {
+  padding-top: var(--menubar-height);
 }
 
 #section-home {
-  /* background-color: var(--color-primary); */
-  background-color: salmon;
+  background-color: var(--color-primary);
+  /* background-color: salmon; */
   height: calc(100vh - 16px);
 }
 
@@ -82,6 +89,7 @@
   display: inline-block;
   left: 50%;
   top: 50%;
+  font-size: 3rem;
   translate: -50% -50%;
 }
 
@@ -89,6 +97,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
 }
 
 .the-story-container > * {
@@ -97,13 +107,22 @@
 }
 
 .the-story-container img {
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
-  height: auto;
+  max-height: 80vh;
+  /* height: 50vw; */
+  /* width: 100%; */
+  /* height: auto; */
   display: block;
 }
 
+.site-center {
+  max-width: var(--site-max-width);
+  margin: auto;
+}
+
 h2 {
+  max-width: var(--site-max-width);
   color: var(--color-primary);
   font-size: 2rem;
   padding: var(--padding-y) var(--padding-x);
@@ -111,13 +130,16 @@ h2 {
 }
 
 .text-block {
+  max-width: var(--site-max-width);
   padding: var(--padding-y) var(--padding-x);
-  background-color: var(--color-primary);
+
   color: var(--color-whiteish);
   /* max-width: 50rem; */
 }
 
 .the-music-container {
+  max-width: var(--site-max-width);
+  margin: auto;
   padding: 0 var(--padding-x);
   display: grid;
   grid-template-columns: repeat(auto-fit, 1fr);
@@ -127,14 +149,18 @@ h2 {
 .album-card {
   /* padding: 0px 32px; */
   margin: auto;
+  height: 100%;
 }
 
 .album-card__item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   max-width: 400px;
   padding: 4px;
+  color: var(--color-primary);
   border: var(--color-primary) solid 4px;
   box-shadow: 4px 4px var(--color-whiteish), 8px 8px var(--color-primary);
-  color: var(--color-primary);
 }
 
 .album-card__item img {
@@ -143,19 +169,39 @@ h2 {
   background-color: var(--color-primary);
 }
 
-.album-card__title {
-  height: 10rem;
+.album-card__item__info-flex {
+  display: flex;
+  flex-direction: column;
+  background-color: yellow;
+  height: 100%;
+}
+
+.album-card__item__title {
+  /* height: 10rem; */
   margin: 16px;
   font-size: 1.5rem;
   overflow: scroll;
+  flex: 1;
 }
 
-.album-card__year {
+.album-card__item__title--smaller {
+  font-size: 1rem;
+}
+
+.album-card__item__year {
   margin: 16px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
-@media screen and (min-width: 600px) {
+.album-card__item__spotify-iframe {
+  /* background-color: var(--color-primary); */
+  margin: 16px;
+}
+
+.section-footer {
+  height: 100px;
+  margin-top: 64px;
+  background-color: var(--color-primary);
 }
 
 @media screen and (min-width: 48rem) {
@@ -182,7 +228,7 @@ h2 {
   }
 }
 
-@media screen and (min-width: 70rem) {
+@media screen and (min-width: 80rem) {
   .text-block {
     columns: 3;
     column-gap: calc(var(--padding-x) / 2);
