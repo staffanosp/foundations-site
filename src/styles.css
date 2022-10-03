@@ -27,7 +27,6 @@
   line-height: 1.6;
   font-family: "Fira Code", monospace;
   background-color: var(--color-whiteish);
-  scroll-behavior: smooth;
 }
 
 /* Navigation */
@@ -286,6 +285,7 @@ h2 {
   :root {
     --padding-x: 4rem;
     --padding-y: 2rem;
+    scroll-behavior: smooth;
   }
 
   .navigation {
