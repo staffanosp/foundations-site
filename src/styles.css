@@ -290,8 +290,8 @@ h2 {
   background-color: var(--color-primary);
 }
 
-/* Desktop ish */
-@media screen and (min-width: 768px) {
+/* Desktop (adapt menu) */
+@media screen and (min-width: 1024px) {
   :root {
     --padding-x: 4rem;
     --padding-y: 2rem;
@@ -340,14 +340,14 @@ h2 {
   .home-container {
     padding-top: var(--navigation__topbar-height);
   }
+}
 
+/* Text & column stuff */
+@media screen and (min-width: 48rem) {
   .the-music-container {
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   }
-}
 
-/* Text column stuff */
-@media screen and (min-width: 48rem) {
   .text-block {
     columns: 2;
     column-gap: calc(var(--padding-x) / 2);
