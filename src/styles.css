@@ -49,7 +49,6 @@
   display: flex;
   justify-content: center;
   transition: clip-path 500ms;
-  touch-action: none;
 }
 
 .navigation--open {
@@ -60,6 +59,9 @@
       )
       calc(var(--navigation__circle-size) + var(--navigation__circle-margin))
   );
+
+  /* Block touch scroll from going through */
+  touch-action: none;
 }
 
 .navigation__darken {
