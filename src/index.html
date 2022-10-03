@@ -41,19 +41,17 @@
       </nav>
     </header>
 
-    <div id="section-home" class="home-container">
-      <video class="section-home__video-bg" autoplay muted loop playsinline>
+    <div id="section-home" class="home">
+      <video class="home__video-bg" autoplay muted loop playsinline>
         <source src="/src/video/home-bg-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
 
     <article id="section-the_story">
-      <div class="site-center">
-        <h2>The Story</h2>
-      </div>
-      <div class="the-story-container">
-        <p class="text-block">
+      <h2 class="site-max-width">The Story</h2>
+      <div class="the-story">
+        <p class="text-block-cols site-max-width">
           Oasis were an English rock band formed in Manchester in 1991.
           Originally known as the Rain, the group initially consisted of Liam
           Gallagher (lead vocals, tambourine), Paul Arthurs (guitar), Paul
@@ -70,7 +68,7 @@
             alt="The Gallagher brothers"
           />
         </div>
-        <p class="text-block">
+        <p class="text-block-cols site-max-width">
           Oasis signed to independent record label Creation Records in 1993 and
           released their record-setting debut album Definitely Maybe (1994). The
           following year they recorded (What's the Story) Morning Glory? (1995)
@@ -93,7 +91,7 @@
             alt="Liam Gallagher performing with Oasis at Maine Road, 1996"
           />
         </div>
-        <p class="text-block">
+        <p class="text-block-cols site-max-width">
           Oasis' popularity later declined and McGuigan and Arthurs left in 1999
           as Oasis released Standing on the Shoulder of Giants (2000). They were
           replaced by former Heavy Stereo guitarist Gem Archer and former Ride
@@ -110,7 +108,7 @@
             alt="Noel Gallagher enters the stage at Maine Road, 1996"
           />
         </div>
-        <p class="text-block">
+        <p class="text-block-cols site-max-width">
           As of 2022, Oasis had sold over 70 million records worldwide. They are
           among the most successful acts on the UK Singles Chart and Albums
           Chart, with eight UK number-one singles and eight UK number-one
@@ -134,16 +132,14 @@
       id="section-the_music"
       class="navigation__topbar--height-compensation"
     >
-      <div class="site-center">
-        <h2>The Music</h2>
-      </div>
-      <div class="the-music-container">
-        <article class="album-card">
-          <div class="album-card__item">
+      <h2 class="site-max-width">The Music</h2>
+      <div class="the-music site-max-width">
+        <article class="the-music__album-card">
+          <div class="the-music__album-card__item">
             <img src="/src/img/album-01.jpg" alt="" />
-            <p class="album-card__item__year">1994</p>
-            <p class="album-card__item__title">Definitely Maybe</p>
-            <div class="album-card__item__spotify-iframe">
+            <p class="the-music__album-card__item__year">1994</p>
+            <p class="the-music__album-card__item__title">Definitely Maybe</p>
+            <div class="the-music__album-card__item__spotify-iframe">
               <iframe
                 style="border-radius: 12px"
                 src="https://open.spotify.com/embed/album/3AMHMM2aNG6k3d7ybcQ5bY?utm_source=generator"
@@ -156,14 +152,14 @@
             </div>
           </div>
         </article>
-        <article class="album-card">
-          <div class="album-card__item">
+        <article class="the-music__album-card">
+          <div class="the-music__album-card__item">
             <img src="/src/img/album-02.jpg" alt="" />
-            <p class="album-card__item__year">1995</p>
-            <p class="album-card__item__title">
+            <p class="the-music__album-card__item__year">1995</p>
+            <p class="the-music__album-card__item__title">
               (What's the Story) Morning Glory?
             </p>
-            <div class="album-card__item__spotify-iframe">
+            <div class="the-music__album-card__item__spotify-iframe">
               <iframe
                 style="border-radius: 12px"
                 src="https://open.spotify.com/embed/album/6tOe4eAF8xNhEkl9WyvsE4?utm_source=generator"
@@ -176,12 +172,12 @@
             </div>
           </div>
         </article>
-        <article class="album-card">
-          <div class="album-card__item">
+        <article class="the-music__album-card">
+          <div class="the-music__album-card__item">
             <img src="/src/img/album-03.jpg" alt="" />
-            <p class="album-card__item__year">1997</p>
-            <p class="album-card__item__title">Be Here Now</p>
-            <div class="album-card__item__spotify-iframe">
+            <p class="the-music__album-card__item__year">1997</p>
+            <p class="the-music__album-card__item__title">Be Here Now</p>
+            <div class="the-music__album-card__item__spotify-iframe">
               <iframe
                 style="border-radius: 12px"
                 src="https://open.spotify.com/embed/album/4XBCWqCXqCdN72K9SklIjy?utm_source=generator"
@@ -194,15 +190,17 @@
             </div>
           </div>
         </article>
-        <article class="album-card">
-          <div class="album-card__item">
+        <article class="the-music__album-card">
+          <div class="the-music__album-card__item">
             <img src="/src/img/album-04.jpg" alt="" />
-            <p class="album-card__item__year">1998</p>
-            <p class="album-card__item__title">
+            <p class="the-music__album-card__item__year">1998</p>
+            <p class="the-music__album-card__item__title">
               The Masterplan<br />
-              <span class="album-card__item__title--smaller">(b-sides)</span>
+              <span class="the-music__album-card__item__title--smaller"
+                >(b-sides)</span
+              >
             </p>
-            <div class="album-card__item__spotify-iframe">
+            <div class="the-music__album-card__item__spotify-iframe">
               <iframe
                 style="border-radius: 12px"
                 src="https://open.spotify.com/embed/album/15D0D1mafSX8Vx5a7w2ZR4?utm_source=generator"
@@ -215,14 +213,14 @@
             </div>
           </div>
         </article>
-        <article class="album-card">
-          <div class="album-card__item">
+        <article class="the-music__album-card">
+          <div class="the-music__album-card__item">
             <img src="/src/img/album-05.jpg" alt="" />
-            <p class="album-card__item__year">2000</p>
-            <p class="album-card__item__title">
+            <p class="the-music__album-card__item__year">2000</p>
+            <p class="the-music__album-card__item__title">
               Standing on the Shoulder of Giants
             </p>
-            <div class="album-card__item__spotify-iframe">
+            <div class="the-music__album-card__item__spotify-iframe">
               <iframe
                 style="border-radius: 12px"
                 src="https://open.spotify.com/embed/album/6aBxuQpJ9D20cZQpF3wLL3?utm_source=generator"
@@ -235,12 +233,12 @@
             </div>
           </div>
         </article>
-        <article class="album-card">
-          <div class="album-card__item">
+        <article class="the-music__album-card">
+          <div class="the-music__album-card__item">
             <img src="/src/img/album-06.jpg" alt="" />
-            <p class="album-card__item__year">2002</p>
-            <p class="album-card__item__title">Heathen Chemistry</p>
-            <div class="album-card__item__spotify-iframe">
+            <p class="the-music__album-card__item__year">2002</p>
+            <p class="the-music__album-card__item__title">Heathen Chemistry</p>
+            <div class="the-music__album-card__item__spotify-iframe">
               <iframe
                 style="border-radius: 12px"
                 src="https://open.spotify.com/embed/album/2EVWJRhbXWsSm7a6jdKv8O?utm_source=generator"
@@ -253,12 +251,14 @@
             </div>
           </div>
         </article>
-        <article class="album-card">
-          <div class="album-card__item">
+        <article class="the-music__album-card">
+          <div class="the-music__album-card__item">
             <img src="/src/img/album-07.jpg" alt="" />
-            <p class="album-card__item__year">2005</p>
-            <p class="album-card__item__title">Don't Believe the Truth</p>
-            <div class="album-card__item__spotify-iframe">
+            <p class="the-music__album-card__item__year">2005</p>
+            <p class="the-music__album-card__item__title">
+              Don't Believe the Truth
+            </p>
+            <div class="the-music__album-card__item__spotify-iframe">
               <iframe
                 style="border-radius: 12px"
                 src="https://open.spotify.com/embed/album/18ACIuiPrMJMkRPtNL9G7h?utm_source=generator"
@@ -271,12 +271,12 @@
             </div>
           </div>
         </article>
-        <article class="album-card">
-          <div class="album-card__item">
+        <article class="the-music__album-card">
+          <div class="the-music__album-card__item">
             <img src="/src/img/album-08.jpg" alt="" />
-            <p class="album-card__item__year">2008</p>
-            <p class="album-card__item__title">Dig out your Soul</p>
-            <div class="album-card__item__spotify-iframe">
+            <p class="the-music__album-card__item__year">2008</p>
+            <p class="the-music__album-card__item__title">Dig out your Soul</p>
+            <div class="the-music__album-card__item__spotify-iframe">
               <iframe
                 style="border-radius: 12px"
                 src="https://open.spotify.com/embed/album/0qzmQzJH4ZDYMHvfN1Px15?utm_source=generator"
@@ -291,7 +291,7 @@
         </article>
       </div>
     </section>
-    <footer class="section-footer"></footer>
+    <footer class="footer"></footer>
     <script src="script.js"></script>
   </body>
 </html>

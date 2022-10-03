@@ -1,11 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Shrikhand&display=swap");
 
+/* ------------------------------------------------------------------------- */
+/* Resets                                                                    */
+/* ------------------------------------------------------------------------- */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   /* border: dashed red 1px; */
 }
+
+/* ------------------------------------------------------------------------- */
+/* :root                                                                     */
+/* ------------------------------------------------------------------------- */
 
 :root {
   /* Variables */
@@ -16,7 +24,7 @@
   --padding-y: 2rem;
 
   --navigation__circle-size: 32px;
-  --navigation__circle-size--open: 32px;
+  --navigation__circle-size--open: 32px; /* calculated from JS */
   --navigation__circle-margin: 16px;
   --navigation__topbar-height: 3rem;
 
@@ -30,7 +38,30 @@
   background-color: var(--color-whiteish);
 }
 
-/* Navigation */
+/* ------------------------------------------------------------------------- */
+/* Site wide                                                                 */
+/* ------------------------------------------------------------------------- */
+
+.site-max-width {
+  max-width: var(--site-max-width);
+  margin: auto;
+}
+
+h2 {
+  color: var(--color-primary);
+  font-size: 2rem;
+  padding: calc(var(--padding-y) + 3rem) var(--padding-x) var(--padding-y);
+  font-weight: 400;
+}
+
+.text-block-cols {
+  padding: var(--padding-y) var(--padding-x);
+  color: var(--color-whiteish);
+}
+
+/* ------------------------------------------------------------------------- */
+/* Navigation                                                                */
+/* ------------------------------------------------------------------------- */
 
 .navigation {
   clip-path: circle(
@@ -66,7 +97,6 @@
 
 .navigation__darken {
   flex: 1;
-  /* width: 100%; */
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -74,13 +104,11 @@
 
 .navigation__menu {
   width: 100%;
+  height: 100%;
   max-width: 320px;
+  padding: 128px 64px 128px 64px;
   background-color: var(--color-primary);
   box-shadow: 0px 0px 64px rgba(0, 0, 0, 0.8);
-
-  height: 100%;
-  padding: 128px 64px 128px 64px;
-
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -89,7 +117,6 @@
 
 .navigation__menu__logo {
   width: 100%;
-  max-width: 340px;
 }
 
 .navigation__menu ul {
@@ -102,7 +129,6 @@
 }
 
 .navigation__menu a {
-  color: var(--color-primary);
   color: var(--color-whiteish);
   font-size: 2rem;
   text-decoration: none;
@@ -133,13 +159,14 @@
 }
 
 .navigation__hamburger__line {
-  background-color: var(--color-primary);
   background-color: var(--color-whiteish);
   position: absolute;
   width: 100%;
   height: 2px;
   transition: 300ms;
 }
+
+/* Navigation: Hamburger, burger lines */
 
 .navigation__hamburger__line:nth-child(1) {
   width: calc(100% - 4px);
@@ -151,6 +178,8 @@
 .navigation__hamburger__line:nth-child(3) {
   top: 10px;
 }
+
+/* Navigation: Hamburger, X */
 
 .navigation--open .navigation__hamburger__line:nth-child(1) {
   opacity: 0;
@@ -164,31 +193,27 @@
   rotate: -45deg;
 }
 
-/* Section: Home */
+/* ------------------------------------------------------------------------- */
+/* Section: Home                                                             */
+/* ------------------------------------------------------------------------- */
 
-#section-home {
+.home {
   position: relative;
-  background-color: var(--color-primary);
   background-color: var(--color-whiteish);
   height: 100vh;
 }
 
-.section-home__video-bg {
-  mix-blend-mode: darken;
+.home__video-bg {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-#section-home h1 {
-  display: inline-block;
-  left: 50%;
-  top: 50%;
-  font-size: 3rem;
-  translate: -50% -50%;
-}
+/* ------------------------------------------------------------------------- */
+/* Section: The Story                                                        */
+/* ------------------------------------------------------------------------- */
 
-.the-story-container {
+.the-story {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -196,97 +221,76 @@
   background-color: var(--color-primary);
 }
 
-.the-story-container > * {
+.the-story > * {
   width: 100%;
 }
 
-.the-story-container img {
+.the-story img {
   object-fit: cover;
   width: 100%;
   max-height: 80vh;
   display: block;
 }
 
-.site-center {
-  max-width: var(--site-max-width);
-  margin: auto;
-}
+/* ------------------------------------------------------------------------- */
+/* Section: The Music                                                        */
+/* ------------------------------------------------------------------------- */
 
-h2 {
-  max-width: var(--site-max-width);
-  color: var(--color-primary);
-  font-size: 2rem;
-  padding: calc(var(--padding-y) + 3rem) var(--padding-x) var(--padding-y);
-  font-weight: 400;
-}
-
-.text-block {
-  max-width: var(--site-max-width);
-  padding: var(--padding-y) var(--padding-x);
-  color: var(--color-whiteish);
-}
-
-.the-music-container {
-  max-width: var(--site-max-width);
-  margin: auto;
-  padding: 0 var(--padding-x);
+.the-music {
+  padding: 0 var(--padding-x) 64px;
   display: grid;
   grid-template-columns: repeat(auto-fit, 1fr);
   grid-gap: 64px;
 }
 
-.album-card {
+.the-music__album-card {
   margin: auto;
   height: 100%;
 }
 
-.album-card__item {
-  display: flex;
-  flex-direction: column;
+.the-music__album-card__item {
   height: 100%;
   max-width: 400px;
   padding: 4px;
+  display: flex;
+  flex-direction: column;
   color: var(--color-primary);
   border: var(--color-primary) solid 4px;
   box-shadow: 4px 4px var(--color-whiteish), 8px 8px var(--color-primary);
 }
 
-.album-card__item img {
+.the-music__album-card__item img {
   width: 100%;
   padding: 16px;
   background-color: var(--color-primary);
 }
 
-.album-card__item__info-flex {
-  display: flex;
-  flex-direction: column;
-  background-color: yellow;
-  height: 100%;
-}
-
-.album-card__item__title {
+.the-music__album-card__item__title {
   margin: 16px;
   font-size: 1.5rem;
   overflow: scroll;
   flex: 1;
 }
 
-.album-card__item__title--smaller {
+.the-music__album-card__item__title--smaller {
   font-size: 1rem;
 }
 
-.album-card__item__year {
+.the-music__album-card__item__year {
   margin: 16px;
   font-size: 1rem;
 }
 
-.album-card__item__spotify-iframe {
+.the-music__album-card__item__spotify-iframe {
   margin: 16px;
 }
 
-.section-footer {
+/* ------------------------------------------------------------------------- */
+/* Footer                                                                    */
+/* ------------------------------------------------------------------------- */
+
+.footer {
   height: 100px;
-  margin-top: 64px;
   background-color: var(--color-primary);
 }
 
@@ -301,14 +305,6 @@ h2 {
     clip-path: none;
     height: var(--navigation__topbar-height);
     background-color: var(--color-primary);
-  }
-
-  .navigation__darken {
-    display: none;
-  }
-
-  .navigation__hamburger {
-    display: none;
   }
 
   .navigation__menu {
@@ -333,29 +329,34 @@ h2 {
     font-size: 1rem;
   }
 
+  .navigation__darken,
+  .navigation__hamburger {
+    display: none;
+  }
+
   h2 {
     font-size: 4rem;
   }
 
-  .home-container {
+  .home {
     padding-top: var(--navigation__topbar-height);
   }
 }
 
-/* Text & column stuff */
+/* text & column stuff */
 @media screen and (min-width: 48rem) {
-  .the-music-container {
+  .the-music {
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   }
 
-  .text-block {
+  .text-block-cols {
     columns: 2;
     column-gap: calc(var(--padding-x) / 2);
   }
 }
 
 @media screen and (min-width: 80rem) {
-  .text-block {
+  .text-block-cols {
     columns: 3;
   }
 }
