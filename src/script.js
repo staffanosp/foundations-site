@@ -19,8 +19,17 @@ for (const navMenuToggleItem of navMenuToggleItems) {
 const updateMenuClipCircle = () => {
   const root = document.querySelector(":root");
 
-  const circleSize = 32; //Todo: read from CSS
-  const circleMargin = 16; //Todo: read from CSS
+  const circleSize = Number(
+    getComputedStyle(root)
+      .getPropertyValue("--navigation__circle-size")
+      .slice(0, -2)
+  );
+
+  const circleMargin = Number(
+    getComputedStyle(root)
+      .getPropertyValue("--navigation__circle-margin")
+      .slice(0, -2)
+  );
 
   const x = window.innerWidth - (circleSize + circleMargin);
   const y = window.innerHeight - (circleSize + circleMargin);
