@@ -8,24 +8,50 @@
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <div class="topbar__bg">
-      <div class="topbar__container">
-        <nav class="topbar__navigation">
-          <a href="#section-home">Home</a>
-          <a href="#section-the_story">The Story</a>
-          <a href="#section-the_music">The Music</a>
-        </nav>
-      </div>
-    </div>
+    <header class="navigation" id="navigation">
+      <a class="navigation__hamburger" id="btnHamburger">
+        <div class="navigation__hamburger__lines">
+          <div class="navigation__hamburger__line"></div>
+          <div class="navigation__hamburger__line"></div>
+          <div class="navigation__hamburger__line"></div>
+        </div>
+      </a>
+      <nav class="navigation__menu">
+        <ul>
+          <li>
+            <a href="#section-home" class="navigation__menu-item">Home</a>
+          </li>
+          <li>
+            <a href="#section-the_story" class="navigation__menu-item"
+              >The Story</a
+            >
+          </li>
+          <li>
+            <a href="#section-the_music" class="navigation__menu-item"
+              >The Music</a
+            >
+          </li>
+        </ul>
+        <div class="navigation__menu__gap"></div>
+        <img
+          src="/src/img/oasis-logo.svg"
+          class="navigation__menu__logo"
+          alt=""
+        />
+      </nav>
+    </header>
 
-    <div id="section-home" class="topbar--compensation">
+    <div id="section-home" class="navigation__topbar--height-compensation">
       <video class="section-home__video-bg" autoplay muted loop playsinline>
         <source src="/src/video/home-bg-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
 
-    <article id="section-the_story" class="topbar--compensation">
+    <article
+      id="section-the_story"
+      class="navigation__topbar--height-compensation"
+    >
       <div class="site-center">
         <h2>The Story</h2>
       </div>
@@ -107,7 +133,10 @@
       </div>
     </article>
 
-    <section id="section-the_music" class="topbar--compensation">
+    <section
+      id="section-the_music"
+      class="navigation__topbar--height-compensation"
+    >
       <div class="site-center">
         <h2>The Music</h2>
       </div>
@@ -266,5 +295,6 @@
       </div>
     </section>
     <footer class="section-footer"></footer>
+    <script src="script.js"></script>
   </body>
 </html>
