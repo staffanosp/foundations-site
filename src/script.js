@@ -46,15 +46,15 @@ window.addEventListener("resize", () => {
 });
 
 //Hack to make background video play on iphone even when in low battery mode
+const startVideo = () => {
+  const videoElement = document.getElementById("home__video-bg");
+  if (videoElement.playing) {
+  } else {
+    videoElement.play();
+  }
+};
+
+startVideo();
+
 const root = document.querySelector(":root");
-root.addEventListener(
-  "touchstart",
-  () => {
-    const videoElement = document.getElementById("home__video-bg");
-    if (videoElement.playing) {
-    } else {
-      videoElement.play();
-    }
-  },
-  false
-);
+root.addEventListener("touchstart", startVideo, false);
