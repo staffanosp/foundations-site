@@ -7,9 +7,9 @@ const navToggle = () => {
 btnHamburger = document.getElementById("btnHamburger");
 btnHamburger.addEventListener("click", navToggle);
 
-//Menu items should close the menu
-let navMenuItems = document.querySelectorAll(".navigation__menu-item");
+//All items that should close (toggle) the menu
+let navMenuToggleItems = document.querySelectorAll(".navigation__menu-toggle");
 
-for (const navMenuItem of navMenuItems) {
-  navMenuItem.addEventListener("click", navToggle);
+for (const navMenuToggleItem of navMenuToggleItems) {
+  navMenuToggleItem.addEventListener("click", navToggle);
 }
