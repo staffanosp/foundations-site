@@ -28,6 +28,8 @@
   --navigation__circle-margin: 16px;
   --navigation__topbar-height: 3rem;
 
+  --the-music__grid-gap: 32px;
+
   --site-max-width: 1600px;
 
   /* Properties */
@@ -270,11 +272,23 @@ h2 {
 /* Section: The Music                                                        */
 /* ------------------------------------------------------------------------- */
 
+/* BEFORE SIDESCROLL
 .the-music {
   padding: 0 var(--padding-x) 64px;
   display: grid;
   grid-template-columns: repeat(auto-fit, 1fr);
   grid-gap: 64px;
+} */
+
+.the-music {
+  padding: 0 var(--padding-x) 64px;
+  display: grid;
+  grid-gap: var(--the-music__grid-gap);
+
+  /* Sidescroll */
+  overflow-x: auto;
+  grid-auto-flow: column;
+  scroll-snap-type: x mandatory;
 }
 
 .the-music__album-card {
@@ -287,6 +301,10 @@ h2 {
   color: var(--color-primary);
   border: var(--color-primary) solid 4px;
   box-shadow: 4px 4px var(--color-whiteish), 8px 8px var(--color-primary);
+
+  /* Sidescroll */
+  width: calc(100vw - var(--padding-x) * 2 - var(--the-music__grid-gap) * 2);
+  scroll-snap-align: center;
 }
 
 .the-music__album-card img {
@@ -296,7 +314,7 @@ h2 {
 }
 
 .the-music__album-card__title {
-  margin: 16px;
+  margin: 0 1rem 1rem;
   font-size: 1.5rem;
   overflow: scroll;
   flex: 1;
@@ -307,7 +325,7 @@ h2 {
 }
 
 .the-music__album-card__year {
-  margin: 16px;
+  margin: 1rem 1rem 0;
   font-size: 1rem;
 }
 
@@ -375,8 +393,17 @@ h2 {
 
 /* text & column stuff */
 @media screen and (min-width: 48rem) {
+  :root {
+    --the-music__grid-gap: 64px;
+  }
+
   .the-music {
+    grid-auto-flow: unset;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  }
+
+  .the-music__album-card {
+    width: unset;
   }
 
   .text-block-cols {
