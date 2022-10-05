@@ -82,9 +82,11 @@ h2 {
   display: flex;
   justify-content: center;
   transition: clip-path 500ms;
+  pointer-events: none;
 }
 
 .navigation--open {
+  pointer-events: auto;
   clip-path: circle(
     var(--navigation__circle-size--open) at
       calc(
@@ -144,6 +146,7 @@ h2 {
 /* Navigation: Hamburger */
 
 .navigation__hamburger {
+  pointer-events: auto;
   position: absolute;
   width: calc(var(--navigation__circle-size) * 2);
   height: calc(var(--navigation__circle-size) * 2);
@@ -286,7 +289,7 @@ h2 {
   grid-gap: var(--the-music__grid-gap);
 
   /* Sidescroll */
-  overflow-x: scroll;
+  overflow-x: auto;
   grid-auto-flow: column;
   scroll-snap-type: x mandatory;
 }
