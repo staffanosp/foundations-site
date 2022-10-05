@@ -286,7 +286,7 @@ h2 {
   grid-gap: var(--the-music__grid-gap);
 
   /* Sidescroll */
-  overflow-x: auto;
+  overflow-x: scroll;
   grid-auto-flow: column;
   scroll-snap-type: x mandatory;
 }
