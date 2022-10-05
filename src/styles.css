@@ -29,9 +29,9 @@
   --navigation__topbar-height: 3rem;
 
   --site-max-width: 1600px;
-  scroll-behavior: smooth;
 
   /* Properties */
+  scroll-behavior: smooth;
   font-size: 16px;
   line-height: 1.6;
   font-family: "Fira Code", monospace;
