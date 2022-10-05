@@ -280,10 +280,6 @@ h2 {
 .the-music__album-card {
   margin: auto;
   height: 100%;
-}
-
-.the-music__album-card__item {
-  height: 100%;
   max-width: 400px;
   padding: 4px;
   display: flex;
@@ -293,29 +289,29 @@ h2 {
   box-shadow: 4px 4px var(--color-whiteish), 8px 8px var(--color-primary);
 }
 
-.the-music__album-card__item img {
+.the-music__album-card img {
   width: 100%;
   padding: 16px;
   background-color: var(--color-primary);
 }
 
-.the-music__album-card__item__title {
+.the-music__album-card__title {
   margin: 16px;
   font-size: 1.5rem;
   overflow: scroll;
   flex: 1;
 }
 
-.the-music__album-card__item__title--smaller {
+.the-music__album-card__title--smaller {
   font-size: 1rem;
 }
 
-.the-music__album-card__item__year {
+.the-music__album-card__year {
   margin: 16px;
   font-size: 1rem;
 }
 
-.the-music__album-card__item__spotify-iframe {
+.the-music__album-card__spotify-iframe {
   margin: 16px;
 }
 
