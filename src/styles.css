@@ -310,10 +310,14 @@ h2 {
   scroll-snap-align: center;
 }
 
+.the-music__album-card__img-wrapper {
+  padding: 8px;
+  background-color: var(--color-primary);
+}
+
 .the-music__album-card img {
   width: 100%;
-  padding: 16px;
-  background-color: var(--color-primary);
+  display: block;
 }
 
 .the-music__album-card__title {
