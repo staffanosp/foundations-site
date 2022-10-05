@@ -66,6 +66,7 @@ h2 {
 /* ------------------------------------------------------------------------- */
 
 .navigation {
+  pointer-events: none;
   clip-path: circle(
     var(--navigation__circle-size) at
       calc(
@@ -82,7 +83,6 @@ h2 {
   display: flex;
   justify-content: center;
   transition: clip-path 500ms;
-  pointer-events: none;
 }
 
 .navigation--open {
@@ -353,6 +353,7 @@ h2 {
   }
 
   .navigation {
+    pointer-events: auto;
     clip-path: none;
     height: var(--navigation__topbar-height);
     background-color: var(--color-primary);
