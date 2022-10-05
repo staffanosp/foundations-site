@@ -117,6 +117,7 @@ h2 {
 
 .navigation__menu__logo {
   width: 100%;
+  display: block;
 }
 
 .navigation__menu ul {
