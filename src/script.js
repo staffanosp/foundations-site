@@ -15,6 +15,15 @@ for (const navMenuToggleItem of navMenuToggleItems) {
 }
 
 //Calculate the radius for the hamburger menu clip path
+const debounce = (func, delay) => {
+  let inDebounce;
+  return function () {
+    const context = this;
+    const args = arguments;
+    clearTimeout(inDebounce);
+    inDebounce = setTimeout(() => func.apply(context, args), delay);
+  };
+};
 
 const updateMenuClipCircleSize = () => {
   const root = document.querySelector(":root");
@@ -34,16 +43,14 @@ const updateMenuClipCircleSize = () => {
   const x = window.innerWidth - (circleSize + circleMargin);
   const y = window.innerHeight - (circleSize + circleMargin);
 
-  const r = Math.sqrt(y ** 2 + x ** 2);
+  const r = Math.ceil(Math.sqrt(y ** 2 + x ** 2));
 
   root.style.setProperty("--navigation__circle-size--open", `${r}px`);
 };
 
 updateMenuClipCircleSize();
 
-window.addEventListener("resize", () => {
-  updateMenuClipCircleSize();
-});
+window.addEventListener("resize", debounce(updateMenuClipCircleSize, 100));
 
 //Hack to make background video play on iphone even when in low battery mode
 const startVideo = () => {
