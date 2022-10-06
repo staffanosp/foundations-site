@@ -1,10 +1,10 @@
 const navToggle = () => {
-  const nav = document.getElementById("navigation");
+  const nav = document.querySelector("#navigation");
   nav.classList.toggle("navigation--open");
 };
 
 //Hamburger menu
-btnHamburger = document.getElementById("btnHamburger");
+btnHamburger = document.querySelector("#btnHamburger");
 btnHamburger.addEventListener("click", navToggle);
 
 //All items that should close (toggle) the menu
@@ -54,7 +54,7 @@ window.addEventListener("resize", debounce(updateMenuClipCircleSize, 100));
 
 //Hack to make background video play on iphone even when in low battery mode
 const startVideo = () => {
-  const videoElement = document.getElementById("home__video-bg");
+  const videoElement = document.querySelector("#home__video-bg");
   if (videoElement.playing) {
   } else {
     videoElement.play();
