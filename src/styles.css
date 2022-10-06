@@ -57,7 +57,6 @@ h2 {
 }
 
 .text-block-cols {
-  padding: var(--padding-y) var(--padding-x);
   color: var(--color-whiteish);
 }
 
@@ -258,6 +257,7 @@ h2 {
   align-items: center;
   justify-content: center;
   background-color: var(--color-primary);
+  padding: var(--padding-y) var(--padding-x);
 }
 
 .the-story > * {
@@ -269,6 +269,7 @@ h2 {
   width: 100%;
   max-height: 80vh;
   display: block;
+  padding: calc(var(--padding-y)) 0;
 }
 
 /* ------------------------------------------------------------------------- */
