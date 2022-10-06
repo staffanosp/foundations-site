@@ -56,10 +56,6 @@ h2 {
   font-weight: 400;
 }
 
-.text-block-cols {
-  color: var(--color-whiteish);
-}
-
 /* ------------------------------------------------------------------------- */
 /* Navigation                                                                */
 /* ------------------------------------------------------------------------- */
@@ -257,11 +253,22 @@ h2 {
   align-items: center;
   justify-content: center;
   background-color: var(--color-primary);
-  padding: var(--padding-y) var(--padding-x);
+  width: 100%;
+  padding: var(--padding-y) 0;
 }
 
 .the-story > * {
   width: 100%;
+  max-width: var(--site-max-width);
+  padding: 0 var(--padding-x);
+}
+
+.the-story > *:last-child {
+  padding-bottom: 0;
+}
+
+.the-story p {
+  color: var(--color-whiteish);
 }
 
 .the-story img {
@@ -269,20 +276,12 @@ h2 {
   width: 100%;
   max-height: 80vh;
   display: block;
-  padding: calc(var(--padding-y)) 0;
+  padding: var(--padding-y) var(--padding-x);
 }
 
 /* ------------------------------------------------------------------------- */
 /* Section: The Music                                                        */
 /* ------------------------------------------------------------------------- */
-
-/* BEFORE SIDESCROLL
-.the-music {
-  padding: 0 var(--padding-x) 64px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 1fr);
-  grid-gap: 64px;
-} */
 
 .the-music {
   padding: 0 var(--padding-x) 64px;
@@ -353,8 +352,7 @@ h2 {
 /* Desktop (adapt menu) */
 @media screen and (min-width: 1024px) {
   :root {
-    --padding-x: 4rem;
-    --padding-y: 2rem;
+    --padding-x: 2rem;
   }
 
   .navigation {
@@ -415,14 +413,14 @@ h2 {
     width: unset;
   }
 
-  .text-block-cols {
+  .the-story p {
     columns: 2;
     column-gap: calc(var(--padding-x) / 2);
   }
 }
 
 @media screen and (min-width: 80rem) {
-  .text-block-cols {
+  .the-story p {
     columns: 3;
   }
 }
